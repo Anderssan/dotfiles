@@ -1,7 +1,7 @@
 [user]
 	email = seb.l.j@hotmail.com
 	name = Sebastian Lyng Johansen
-	token = 863d5094924435b92b44ae17ea67fa7e3835320e
+	; token = 863d5094924435b92b44ae17ea67fa7e3835320e
 
 [credential]
 	helper = store
