@@ -1,0 +1,15 @@
+[user]
+	email = seb.l.j@hotmail.com
+	name = Sebastian Lyng Johansen
+	token = 863d5094924435b92b44ae17ea67fa7e3835320e
+
+[credential]
+	helper = store
+
+[alias]
+	st = status
+	aa = add -A .
+	cm = commit -m
+	aacm = !git add -A . && git commit -m
+	start = !git checkout master && git pull origin
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
