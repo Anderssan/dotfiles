@@ -69,18 +69,18 @@ packloadall
 silent! helptags ALL
 
 "alt+l to the right-window"
-nnoremap <A-l> <C-w>l
+nnoremap <C-l> <C-w>l
 "alt+h arrown to move to the left-window"
-nnoremap <A-h> <C-W>h
+nnoremap <C-h> <C-w>h
 "Alt + j = move line down
-nnoremap <A-j> :m.+1<CR>==
-vnoremap <A-j> :m '>+1<CR>gv=gv
-inoremap <A-j> <Esc>:m .+1<CR>==gi
+nnoremap <C-j> :m.+1<CR>==
+vnoremap <C-j> :m '>+1<CR>gv=gv
+inoremap <C-j> <Esc>:m .+1<CR>==gi
 
 "Alt + k = move line up
-nnoremap <A-k> :m.-2<CR>==
-vnoremap <A-k> :m '<-2<CR>gv=gv
-inoremap <A-k> <Esc>:m .-2<CR>==gi
+nnoremap <C-k> :m.-2<CR>==
+vnoremap <C-k> :m '<-2<CR>gv=gv
+inoremap <C-k> <Esc>:m .-2<CR>==gi
 
 "nt to go to nt"
 nnoremap nt 1<C-w>w
@@ -103,7 +103,7 @@ nnoremap <tab> :tabn<CR>
 nnoremap <S-tab> :tabp<CR>
 
 "ctr + l = unhighlight words
-nnoremap <silent> <C-l> :nohl<CR><C-l>
+nnoremap <silent> ﬁ :nohl<CR><C-l>
 
 function MyCustomHighlights()
     hi semshiSelf      ctermfg=75
