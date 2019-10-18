@@ -6,6 +6,29 @@ ln -s ~/dotfiles/.vimrc ~/.vimrc
 ln -s ~/dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/dotfiles/.zshrc ~/.zshrc 
 
+#Checks if plug.vim is installed, if not: install it
+install_plugvim () {
+
+if [[ ! -d ~/.local/nvim/site/autoload/plug.vim ]]; then
+	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+}
+
+create_initvim_in_config () {
+
+	if [[ ! -d ~/.config ]]; then
+		mkdir .config
+		cd .config
+		mkdir nvim
+		cat > init.vim <<EOF
+			set runtimepath^=~/.vim runtimepath+=~/.vim/after
+			let &packpath=&runtimepath
+			source ~/.vimrc
+EOF
+	fi
+}
+
 install_zsh () {
 # Test to see if zshell is installed.  If it is:
 if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
@@ -39,4 +62,5 @@ fi
 }
 
 install_zsh
+install_plugvim
 

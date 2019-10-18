@@ -60,8 +60,11 @@ let g:lightline = {
       \ }
 
 "Ale"
-"always have a column"
+"always have a column, and only lint on save"
 let g:ale_sign_column_always = 1
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 1
 let g:deoplete#enable_at_startup = 1
 "Nerdtree"
 let g:NERDTreeChDirMode = 2
