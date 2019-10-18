@@ -18,13 +18,14 @@ fi
 create_initvim_in_config () {
 
 	if [[ ! -d ~/.config ]]; then
-		mkdir .config
+		cd && mkdir .config
 		cd .config
 		mkdir nvim
+		cd nvim
 		cat > init.vim <<EOF
-			set runtimepath^=~/.vim runtimepath+=~/.vim/after
-			let &packpath=&runtimepath
-			source ~/.vimrc
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath=&runtimepath
+source ~/.vimrc
 EOF
 	fi
 }
@@ -63,4 +64,4 @@ fi
 
 install_zsh
 install_plugvim
-
+create_initvim_in_config
