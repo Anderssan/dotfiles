@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+#Fix unsecure folders
+sudo chown -R $USER:admin /usr/local/*
+
 #Creates symlink to files inside dotfiles-repo
 #Use -sfn instead of -s to overwrite existing dotfiles
 ln -s ~/dotfiles/.vimrc ~/.vimrc
@@ -65,3 +68,8 @@ fi
 install_zsh
 install_plugvim
 create_initvim_in_config
+git clone https://github.com/agkozak/zsh-z ~/oh-my-zsh/plugins/zsh-z
+git clone https://github.com/denysdovhan/spaceship-prompt.git "~/oh-my-zsh/themes/spaceship-prompt"
+ln -s "~/oh-my-zsh/themes/spaceship-prompt/spaceship.zsh-theme" "~/oh-my-zsh/themes/spaceship.zsh-theme"
+# vim + 'PlugInstall --sync' +qa
+vim +PlugInstall +qall
