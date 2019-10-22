@@ -14,7 +14,7 @@ call plug#begin()
 	Plug 'rhysd/accelerated-jk'
 	Plug 'jiangmiao/auto-pairs'
     Plug 'tpope/vim-fugitive'
-
+	Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 
 syntax on
@@ -47,17 +47,17 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
-let g:airline_symbols.branch = 'ÓÇ†'
-let g:airline_symbols.notexists = '…Ü'
-let g:airline_symbols.linenr = '‚ò∞'
-let g:airline_left_sep = '¬ª'
-let g:airline_symbols.dirty='!'
-let g:airline_symbols.maxlinenr = ' „èë'
-let g:airline_symbols.paste = 'œÅ'
+" let g:airline_symbols.branch = 'ÓÇ†'
+" let g:airline_symbols.notexists = '…Ü'
+" let g:airline_symbols.linenr = '‚ò∞'
+" let g:airline_left_sep = '¬ª'
+" let g:airline_symbols.dirty='!'
+" let g:airline_symbols.maxlinenr = ' „èë'
+" let g:airline_symbols.paste = 'œÅ'
 "lightline colorscheme"
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ }
+       \ 'colorscheme': 'solarized',
+\ }
 
 "Ale"
 "always have a column, and only lint on save"
@@ -107,6 +107,13 @@ nnoremap <S-tab> :tabp<CR>
 
 "ctr + l = unhighlight words
 nnoremap <silent> ﬁ :nohl<CR><C-l>
+
+"Custom colors to C-syntax"
+" hi! cFunction 		ctermfg=38
+" hi! Function		ctermfg=38
+
+"Highlights data-type _t"
+hi c_t 			ctermfg=71
 
 function MyCustomHighlights()
     hi semshiSelf      ctermfg=75
