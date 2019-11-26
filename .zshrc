@@ -3,7 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/oh-my-zsh"
-
+export CPATH=`xcrun --show-sdk-path`/usr/include
 ZSH_THEME="spaceship"
 
 #Remove % at end of print when not using \n
