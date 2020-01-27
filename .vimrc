@@ -1,5 +1,4 @@
 call plug#begin()
-
 	Plug 'altercation/vim-colors-solarized'
 	Plug 'scrooloose/nerdtree'
 	Plug 'rafi/awesome-vim-colorschemes'
@@ -17,11 +16,24 @@ call plug#begin()
 	Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 
+set clipboard=unnamedplus
+set mouse=a
+
 syntax on
 set shiftwidth=4
 set tabstop=4
+set noswapfile
 set number relativenumber
 colorscheme afterglow
+set completeopt=menu,noinsert
+set completefunc=emoji#complete
+" Allow larger undo history
+set undofile                       " use an undo file
+set undodir=$HOME/.vim/undo        " undo file path
+set undolevels=1000
+set undoreload=10000
+
+
 " let g:semshi#excluded_hl_groups = ['global', 'local']
 let g:semshi#mark_selected_nodes = 0
 let g:semshi#error_sign = 0
@@ -71,6 +83,12 @@ let g:NERDTreeChDirMode = 2
 packloadall
 silent! helptags ALL
 
+vnoremap < <gv
+vnoremap > >gv
+
+nnoremap <C-i> gg=G
+nnoremap <A-i> gg=G
+
 "alt+l to the right-window"
 nnoremap <C-l> <C-w>l
 "alt+h arrown to move to the left-window"
@@ -84,6 +102,13 @@ inoremap <C-j> <Esc>:m .+1<CR>==gi
 nnoremap <C-k> :m.-2<CR>==
 vnoremap <C-k> :m '<-2<CR>gv=gv
 inoremap <C-k> <Esc>:m .-2<CR>==gi
+
+"Wrap selected inside:
+vnoremap ( d<ESC>i()<ESC>P
+vnoremap [ d<ESC>i[]<ESC>P
+vnoremap { d<ESC>i{}<ESC>P
+vnoremap " d<ESC>i""<ESC>P
+vnoremap ' d<ESC>i''<ESC>P
 
 "nt to go to nt"
 nnoremap nt 1<C-w>w
