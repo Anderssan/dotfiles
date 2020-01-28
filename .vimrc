@@ -1,8 +1,6 @@
 call plug#begin()
-	Plug 'altercation/vim-colors-solarized'
 	Plug 'scrooloose/nerdtree'
 	Plug 'rafi/awesome-vim-colorschemes'
-	Plug 'itchyny/lightline.vim'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'numirias/semshi'
@@ -10,23 +8,23 @@ call plug#begin()
 	Plug 'tpope/vim-commentary'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'terryma/vim-multiple-cursors'
-	Plug 'rhysd/accelerated-jk'
 	Plug 'jiangmiao/auto-pairs'
     Plug 'tpope/vim-fugitive'
 	Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 
+syntax on
+colorscheme afterglow
+
 set clipboard=unnamedplus
 set mouse=a
-
-syntax on
 set shiftwidth=4
 set tabstop=4
 set noswapfile
 set number relativenumber
-colorscheme afterglow
 set completeopt=menu,noinsert
 set completefunc=emoji#complete
+
 " Allow larger undo history
 set undofile                       " use an undo file
 set undodir=$HOME/.vim/undo        " undo file path
@@ -40,13 +38,6 @@ let g:semshi#error_sign = 0
 let g:semshi#update_delay_factor = 0.01
 let g:semshi#excluded_hl_groups = ['local', 'attribute', 'imported']
 
-"cursor"
-
-let &t_SI.="\e[5 q" "SI = INSERT mode
-let &t_SR.="\e[4 q" "SR = REPLACE mode
-let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
-
-
 "air-line"
 "colorscheme"
 "shows the current branch"
@@ -59,21 +50,10 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
-" let g:airline_symbols.branch = 'ÓÇ†'
-" let g:airline_symbols.notexists = '…Ü'
-" let g:airline_symbols.linenr = '‚ò∞'
-" let g:airline_left_sep = '¬ª'
-" let g:airline_symbols.dirty='!'
-" let g:airline_symbols.maxlinenr = ' „èë'
-" let g:airline_symbols.paste = 'œÅ'
-"lightline colorscheme"
-let g:lightline = {
-       \ 'colorscheme': 'solarized',
-\ }
 
 "Ale"
 "always have a column, and only lint on save"
-let g:ale_sign_column_always = 1
+let g:ale_sign_column_always = 0
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
